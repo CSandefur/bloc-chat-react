@@ -15,39 +15,40 @@ var config = {
 };
 firebase.initializeApp(config);
 
-var roomAccess = firebase.database().ref('rooms');
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeRoom: 0,
+      activeRoom: undefined,
     };
+    this.setActiveRoom = this.setActiveRoom.bind(this);
 
   }
 
-  componentDidMount() {
-    roomAccess.on('child_added', snapshot => {
-      const room = snapshot.val();
-      room.key = snapshot.key;
-      var allRooms = [];
-      allRooms.push(room);
-      console.log(allRooms);
-      this.setState({ activeRoom: allRooms[0] });
-    });
+  setActiveRoom(room) {
+    console.log(room);
+    this.setState({ activeRoom: room });
+    console.log(this.state.activeRoom);
   }
+
 
   render() {
     return (
       <div className="App">
         <header>
           <h1>Bloc Chat</h1>
+          <p>Placeholder for Active Room:</p>
         </header>
         <RoomList
           firebase={firebase}
+          activeRoom={this.state.activeRoom}
+          setActiveRoom={this.setActiveRoom}
+          //setActiveRoom={() => this.setActiveRoom()}
         />
         <MessageList
           firebase={firebase}
+          activeRoom={this.state.activeRoom}
         />
       </div>
     );
