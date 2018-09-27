@@ -21,15 +21,16 @@ class App extends Component {
     super(props);
     this.state = {
       activeRoom: undefined,
+      roomTitle: '',
     };
-    this.setActiveRoom = this.setActiveRoom.bind(this);
 
   }
 
   setActiveRoom(room) {
-    console.log(room);
+    const activeRoomName = room.name;
+    console.log(activeRoomName);
     this.setState({ activeRoom: room });
-    console.log(this.state.activeRoom);
+    this.setState({ roomTitle: activeRoomName });
   }
 
 
@@ -38,12 +39,12 @@ class App extends Component {
       <div className="App">
         <header>
           <h1>Bloc Chat</h1>
-          <p>Placeholder for Active Room:</p>
+          <p>Active Room: {this.state.roomTitle}</p>
         </header>
         <RoomList
           firebase={firebase}
           activeRoom={this.state.activeRoom}
-          setActiveRoom={this.setActiveRoom}
+          setActiveRoom={this.setActiveRoom.bind(this)}
           //setActiveRoom={() => this.setActiveRoom()}
         />
         <MessageList
