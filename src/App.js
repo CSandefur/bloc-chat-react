@@ -22,15 +22,18 @@ class App extends Component {
     this.state = {
       activeRoom: undefined,
       roomTitle: '',
+      activeRoomId: '',
     };
 
   }
 
   setActiveRoom(room) {
     const activeRoomName = room.name;
+    const newRoomId = room.key;
     console.log(activeRoomName);
     this.setState({ activeRoom: room });
     this.setState({ roomTitle: activeRoomName });
+    this.setState({ activeRoomId: newRoomId });
   }
 
 
@@ -50,6 +53,7 @@ class App extends Component {
         <MessageList
           firebase={firebase}
           activeRoom={this.state.activeRoom}
+          activeRoomId={this.state.activeRoomId}
         />
       </div>
     );

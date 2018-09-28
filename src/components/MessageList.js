@@ -18,11 +18,12 @@ class MessageList extends Component {
     });
   }
 
+
   render() {
     return (
       <section className='messagelist'>
         {this.state.messages.map( (message, index) =>
-          <p key={index}>{message.name}</p>
+          <p key={index}>{message.roomId === this.props.activeRoomId ? message.content + " sent at: " + message.sentAt : ''}</p>
         )
       }
       <p>Placeholder Text</p>
