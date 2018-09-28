@@ -49,6 +49,8 @@ class App extends Component {
           activeRoom={this.state.activeRoom}
           setActiveRoom={this.setActiveRoom.bind(this)}
           //setActiveRoom={() => this.setActiveRoom()}
+          //though it normally works, don't do the above because of the onClick format in RoomList.js (it requires a parameter)
+          //you can also bind it in the constructor and it will work, or in the method, but the format on line 51 is what was causing issues
         />
         <MessageList
           firebase={firebase}

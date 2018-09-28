@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class MessageList extends Component {
   constructor(props) {
     super(props);
-    this.state = {
+    this.state =
       messages: [],
     };
 
@@ -26,7 +26,6 @@ class MessageList extends Component {
           <p key={index}>{message.roomId === this.props.activeRoomId ? message.content + " sent at: " + message.sentAt : ''}</p>
         )
       }
-      <p>Placeholder Text</p>
       </section>
     );
   }

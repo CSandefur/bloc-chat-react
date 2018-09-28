@@ -35,12 +35,6 @@ class RoomList extends Component {
     this.setState({ newName: ''});
   }
 
-  //handleRoomClick (room) {
-  //  console.log(room);
-  //  console.log(room.name);
-  //  this.props.setActiveRoom(room);
-  //}
-
   render() {
     return (
       <section className='roomlist'>
