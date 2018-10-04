@@ -27,7 +27,7 @@ class User extends Component {
     return (
       <section className="userManagement">
         {/*<h4>{this.props.currentUser.displayName}</h4>
-        <h4>{this.props.user.displayName}</h4>*/}
+        <h4>{this.props.user.displayName}</h4> SEE NOTEPAD FILE BLOC CHAT FIX FOR EXPLANATION*/}
         <h4>{this.props.displayName}</h4>
         <input type="button" id="signInButton" value="Sign In" onClick={() => this.handleSignIn()}/>
         <input type="button" id="signOutButton" value="Sign Out" onClick={() => this.handleSignOut()}/>

@@ -41,6 +41,7 @@ class RoomList extends Component {
         {
           this.state.rooms.map( (room, index) =>
             <p key={index} onClick={() => this.props.setActiveRoom(room)}>{room.name}</p>
+            /*he adds ....setActiveRoom(room.key)...*/
           )
         }
         <form onSubmit={this.createRoom}>
