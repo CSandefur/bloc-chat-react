@@ -71,6 +71,8 @@ class App extends Component {
           firebase={firebase}
           activeRoom={this.state.activeRoom}
           activeRoomId={this.state.activeRoomId}
+          currentUser={this.state.currentUser}
+          displayName={this.state.displayName}
         />
         <User
           firebase={firebase}
